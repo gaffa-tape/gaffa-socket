@@ -1,5 +1,5 @@
 {
-  "name": "gedi",
+  "name": "gaffa-socket",
   "description": "A web sockets behaviour for gaffa",
   "author": "Kory Nunn <knunn187@gmail.com>",
   "version": "0.0.1",
