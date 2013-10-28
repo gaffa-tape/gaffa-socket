@@ -1,0 +1,23 @@
+{
+  "name": "gedi",
+  "description": "A web sockets behaviour for gaffa",
+  "author": "Kory Nunn <knunn187@gmail.com>",
+  "version": "0.0.1",
+  "main": "webSocket.js",
+  "dependencies": {
+    "gaffa":"x.x.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gaffa-tape/gaffa-socket.git"
+  },
+  "bugs": {
+    "url": "http://github.com/gaffa-tape/gaffa-socket/issues"
+  },
+  "keywords": [
+    "gaffa",
+    "socket",
+    "web sockets"
+  ],
+  "license": "MIT"
+}
