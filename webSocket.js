@@ -1,9 +1,8 @@
-var Gaffa = require('gaffa'),
-    behaviourType = 'webSocket';
+var Gaffa = require('gaffa');
 
 function createSocket(behaviour){
-    if(!window.WebSocket){
-        console.warn('This browser does not support WebSockets');
+    if(!window.Socket){
+        console.warn('This browser does not support Sockets');
         return;
     }
 
@@ -15,7 +14,7 @@ function createSocket(behaviour){
         behaviour.webSocket.close();
     }
 
-    var webSocket = behaviour.webSocket = new window.WebSocket(behaviour.url.value);
+    var webSocket = behaviour.webSocket = new window.Socket(behaviour.url.value);
 
     webSocket.onmessage = function(message){
         var data = JSON.parse(message.data);
@@ -25,25 +24,28 @@ function createSocket(behaviour){
         };
 
         behaviour.triggerActions('message', scope);
-    }
+    };
+    webSocket.onconnect = function(){
+        behaviour.triggerActions('connect');
+    };
     webSocket.onerror = function(error){
         var scope = {
             error: error
         };
 
         behaviour.triggerActions('error', scope);
-    }
+    };
 }
 
-function WebSocket(){}
-WebSocket = Gaffa.createSpec(WebSocket, Gaffa.Behaviour);
-WebSocket.prototype.type = behaviourType;
-WebSocket.prototype.url = new Gaffa.Property();
+function Socket(){}
+Socket = Gaffa.createSpec(Socket, Gaffa.Behaviour);
+Socket.prototype.type = 'socket';
+Socket.prototype.url = new Gaffa.Property();
 
 // How long to wait before initialising the connection.
-WebSocket.prototype.connect = new Gaffa.Property({
+Socket.prototype.connect = new Gaffa.Property({
     update: createSocket,
     value: true
 });
 
-module.exports = WebSocket;
+module.exports = Socket;
