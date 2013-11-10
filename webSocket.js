@@ -1,7 +1,7 @@
 var Gaffa = require('gaffa');
 
 function createSocket(behaviour){
-    if(!window.Socket){
+    if(!window.WebSocket){
         console.warn('This browser does not support Sockets');
         return;
     }
@@ -14,7 +14,7 @@ function createSocket(behaviour){
         behaviour.webSocket.close();
     }
 
-    var webSocket = behaviour.webSocket = new window.Socket(behaviour.url.value);
+    var webSocket = behaviour.webSocket = new window.WebSocket(behaviour.url.value);
 
     webSocket.onmessage = function(message){
         var data = JSON.parse(message.data);
