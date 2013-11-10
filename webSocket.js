@@ -25,8 +25,8 @@ function createSocket(behaviour){
 
         behaviour.triggerActions('message', scope);
     };
-    webSocket.onconnect = function(){
-        behaviour.triggerActions('connect');
+    webSocket.onopen = function(){
+        behaviour.triggerActions('open');
     };
     webSocket.onerror = function(error){
         var scope = {
