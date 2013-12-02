@@ -4,9 +4,6 @@
   "author": "Kory Nunn <knunn187@gmail.com>",
   "version": "0.1.2",
   "main": "webSocket.js",
-  "dependencies": {
-    "gaffa": "x.x.x"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gaffa-tape/gaffa-socket.git"
